@@ -4,27 +4,32 @@ const fs = require('fs');
 
 const PORT = 8080;
 
-function fileName(url) {
+function relativeFilePath(url) {
     //We remove the first character ('/') 
-    let fileName = url.slice(1);
+    let relativePath = url.slice(1);
     switch (url) {
         case '/':
-            fileName = 'index.html';
+            relativePath = 'index.html';
             break;
         case '/about':
-            fileName = 'about.html';
+            relativePath = 'about.html';
             break;
         case '/contact-me':
-            fileName = 'contact-me.html';
+            relativePath = 'contact-me.html';
             break;
     } 
-    return fileName;
+    return relativePath;
+}
+
+function filePath(relativeFilePath) {
+    const PUBLIC_FOLDER = 'public';
+    return path.join(__dirname, PUBLIC_FOLDER, relativeFilePath);
 }
 
 const server = http.createServer((req, res) => {
     //Handle request here ...
     const reqUrl = req.url;
-    console.log(fileName(reqUrl));
+    console.log(filePath(relativeFilePath(reqUrl)));
     res.end('Hello World!');
 })
 
