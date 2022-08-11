@@ -30,10 +30,18 @@ const server = http.createServer((req, res) => {
     //Handle request here ...
     const reqUrl = req.url;
     const fPath = filePath(relativeFilePath(reqUrl));
+    const PAGE_NOT_FOUND = filePath('404.html');
     fs.readFile(fPath, (err, content) => {
         if (err) {
             //error handling ...
-            res.end(`server error: ${err.code}`);
+            if (err.code === "ENOENT") 
+                //Page not found
+                fs.readFile(PAGE_NOT_FOUND, (err, content) => {
+                    res.writeHead(200, {'Content-Type': 'text/html'});
+                    res.end(content);
+                });
+            //Some other error
+            else res.end(`server error: ${err.code}`);
         } else {
             //success
             res.writeHead(200, {'Content-Type': 'text/html'});
