@@ -1,0 +1,22 @@
+{
+  "name": "basic-informational-site",
+  "version": "1.0.0",
+  "description": "Basic web server created only by Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexErdei73/basic-informational-site.git"
+  },
+  "author": "Alex Erdei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexErdei73/basic-informational-site/issues"
+  },
+  "homepage": "https://github.com/AlexErdei73/basic-informational-site#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
