@@ -29,8 +29,17 @@ function filePath(relativeFilePath) {
 const server = http.createServer((req, res) => {
     //Handle request here ...
     const reqUrl = req.url;
-    console.log(filePath(relativeFilePath(reqUrl)));
-    res.end('Hello World!');
+    const fPath = filePath(relativeFilePath(reqUrl));
+    fs.readFile(fPath, (err, content) => {
+        if (err) {
+            //error handling ...
+            res.end(`server error: ${err.code}`);
+        } else {
+            //success
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(content);
+        }
+    });
 })
 
 server.listen(PORT, () => console.log(`Server is listening on ${PORT} ...`));
