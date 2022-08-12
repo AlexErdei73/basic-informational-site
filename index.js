@@ -26,10 +26,23 @@ function filePath(relativeFilePath) {
     return path.join(__dirname, PUBLIC_FOLDER, relativeFilePath);
 }
 
+function contentType(relativePath) {
+    const ext = path.extname(relativePath);
+    let contentType = 'text/html';
+    switch (ext) {
+        case '.css':
+            contentType = 'text/css';
+            break;
+    }
+    return contentType;
+}
+
 const server = http.createServer((req, res) => {
     //Handle request here ...
     const reqUrl = req.url;
-    const fPath = filePath(relativeFilePath(reqUrl));
+    const relPath = relativeFilePath(reqUrl);
+    const fPath = filePath(relPath);
+    const contType = contentType(relPath);
     const PAGE_NOT_FOUND = filePath('404.html');
     fs.readFile(fPath, (err, content) => {
         if (err) {
@@ -44,7 +57,7 @@ const server = http.createServer((req, res) => {
             else res.end(`server error: ${err.code}`);
         } else {
             //success
-            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.writeHead(200, {'Content-Type': contType});
             res.end(content);
         }
     });
