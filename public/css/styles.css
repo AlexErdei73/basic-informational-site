@@ -1,98 +1,109 @@
 body {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 nav {
-    background-color: dodgerblue;
+  background-color: dodgerblue;
 }
 
 ul {
-    padding: 0;
-    display: flex;
-    margin: 0 5rem;
-    max-width: 600px;
+  padding: 0;
+  display: flex;
+  margin: 0 5rem;
+  max-width: 600px;
 }
 
 li {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    flex: 0 1 7rem;
-    text-align: start;
-    height: 2rem;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex: 0 1 7rem;
+  text-align: start;
+  height: 2rem;
 }
 
 ul :nth-child(1) {
-    flex: 1 1 10rem;
-    margin-left: .3rem;
+  flex: 1 1 10rem;
+  margin-left: 0.3rem;
 }
 
 li a {
-    color: white;
+  color: white;
+  text-decoration: none;
 }
 
 li a:hover {
-    color: black;
+  color: black;
 }
 
 footer {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: dodgerblue;
-    color: white;
-    width: 100%;
-    height: 2rem;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: dodgerblue;
+  color: white;
+  width: 100%;
+  height: 2rem;
 }
 
 footer div {
-    margin: auto;
+  margin: auto;
 }
 
 article {
-    margin: 3rem 5rem;
-    max-width: 600px;
-    animation: fadeIn 300ms ease-out;
+  margin: 3rem 5rem;
+  max-width: 600px;
+  animation: fadeIn 300ms ease-out;
 }
 
 article.fade-out {
-    opacity: 0;
+  opacity: 0;
 }
 
 article.fade-out {
-    animation: fadeOut 300ms ease-in;
+  animation: fadeOut 300ms ease-in;
 }
 
-img{
-    border-radius: 50%;
+img {
+  border-radius: 50%;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-3rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(3rem);
-    }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+}
+
+@media (max-width: 600px) {
+  article {
+    margin: 3rem 0.5rem;
+  }
+
+  ul {
+    margin: 0 0.5rem;
+  }
 }
