@@ -14,8 +14,10 @@ nav {
 }
 
 ul {
-    margin: 0;
+    padding: 0;
     display: flex;
+    margin: 0 5rem;
+    max-width: 600px;
 }
 
 li {
@@ -29,6 +31,7 @@ li {
 
 ul :nth-child(1) {
     flex: 1 1 10rem;
+    margin-left: .3rem;
 }
 
 li a {
@@ -52,4 +55,9 @@ footer div {
 
 article {
     margin: 3rem 5rem;
+    max-width: 600px;
+}
+
+img{
+    border-radius: 50%;
 }
